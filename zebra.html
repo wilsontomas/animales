@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Casa</title>
+		<title>Animales</title>
 		<style>
 			body { margin: 0; }
 		</style>
@@ -35,14 +35,112 @@
 			const renderer = new THREE.WebGLRenderer();
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
+
+			const textureZebra = new THREE.TextureLoader().load( "textura/zebra.jfif" );
+			textureZebra.wrapS = THREE.RepeatWrapping;
+			textureZebra.wrapT = THREE.RepeatWrapping;
+			textureZebra.repeat.set( 0.5, 0.5 );
 			//cuerpo zebra
 			const geometryZebra = new THREE.BoxGeometry( 1, 0.7, 1.6 );
-			const materialZebra = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+			const materialZebra = new THREE.MeshBasicMaterial( {map:textureZebra} );
 			const cuerpoZebra = new THREE.Mesh( geometryZebra, materialZebra );
 			cuerpoZebra.position.y=0.4;
-
 			scene.add( cuerpoZebra );
+			//fin cuerpo
 
+			//cola zebra
+			const geometryCola = new THREE.BoxGeometry( 0.1, 0.7, 0.3 );
+			const materialCola = new THREE.MeshBasicMaterial( {color: 'black'} );
+			const cuerpoCola = new THREE.Mesh( geometryCola, materialCola );
+			cuerpoCola.position.y=0.4;
+			cuerpoCola.position.z=-0.8;
+
+			scene.add( cuerpoCola );
+			//fin cola
+
+			//cuello zebra
+			const geometryCuelloZebra = new THREE.BoxGeometry( 0.5, 1.05, 0.5 );
+			const materialCuelloZebra = new THREE.MeshBasicMaterial( {map:textureZebra} );
+			const cuelloZebra = new THREE.Mesh( geometryCuelloZebra, materialCuelloZebra );
+			cuelloZebra.position.y=0.7;
+			cuelloZebra.position.z=0.8;
+			cuelloZebra.rotation.x +=0.6
+			scene.add( cuelloZebra );
+			//fin cuello
+
+			//cabeza zebra
+			const geometryCabezaZebra = new THREE.BoxGeometry( 0.51, 0.5, 0.58 );
+			const materialCabezaZebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
+			const CabezaZebra = new THREE.Mesh( geometryCabezaZebra, materialCabezaZebra );
+			CabezaZebra.position.y=1.03;
+			CabezaZebra.position.z=1.05;
+			
+			scene.add( CabezaZebra );
+			//fin cabeza
+
+			//boca zebra
+			const geometryBocaZebra = new THREE.BoxGeometry( 0.4, 0.3, 0.5 );
+			const materialBocaZebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
+			const BocaZebra = new THREE.Mesh( geometryBocaZebra, materialBocaZebra );
+			BocaZebra.position.y=1;
+			BocaZebra.position.z=1.32;
+			
+			scene.add( BocaZebra );
+			//fin boca
+
+			//nariz zebra
+			const geometryNarizZebra = new THREE.BoxGeometry( 0.2, 0.1, 0.5 );
+			const materialNarizZebra = new THREE.MeshBasicMaterial( {color: '#6d6566'} );
+			const NarizZebra = new THREE.Mesh( geometryNarizZebra, materialNarizZebra );
+			NarizZebra.position.y=1;
+			NarizZebra.position.z=1.4;
+			
+			scene.add( NarizZebra );
+			//fin nariz
+
+			//ojos zebra
+			const geometryOjosZebra = new THREE.BoxGeometry( 0.52, 0.1, 0.1 );
+			const materialOjosZebra = new THREE.MeshBasicMaterial( {color: 'black'} );
+			const OjosZebra = new THREE.Mesh( geometryOjosZebra, materialOjosZebra );
+			OjosZebra.position.y=1.1;
+			OjosZebra.position.z=1.1;
+			
+			scene.add( OjosZebra );
+			//fin ojo1
+
+			//oreja1 zebra
+			const geometryOreja1Zebra = new THREE.BoxGeometry( 0.1, 0.22, 0.1 );
+			const materialOreja1Zebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
+			const Oreja1Zebra = new THREE.Mesh( geometryOreja1Zebra, materialOreja1Zebra );
+			Oreja1Zebra.position.y=1.37;
+			Oreja1Zebra.position.z=1;
+			Oreja1Zebra.position.x=0.18;
+
+			
+			scene.add( Oreja1Zebra );
+			//fin oreja1
+			//oreja2 zebra
+			const geometryOreja2Zebra = new THREE.BoxGeometry( 0.1, 0.22, 0.1 );
+			const materialOreja2Zebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
+			const Oreja2Zebra = new THREE.Mesh( geometryOreja2Zebra, materialOreja2Zebra );
+			Oreja2Zebra.position.y=1.37;
+			Oreja2Zebra.position.z=1;
+			Oreja2Zebra.position.x=-0.18;
+
+			
+			scene.add( Oreja2Zebra );
+			//fin Fleco
+
+			const geometryFlecoZebra = new THREE.BoxGeometry( 0.1, 0.18, 0.4 );
+			const materialFlecoZebra = new THREE.MeshBasicMaterial( {map:textureZebra} );
+			const FlecoZebra = new THREE.Mesh( geometryFlecoZebra, materialFlecoZebra );
+			FlecoZebra.position.y=1.37;
+			FlecoZebra.position.z=1;
+			FlecoZebra.position.x=0.01;
+
+			
+			scene.add( FlecoZebra );
+			//fin Fleco
 			generateLegs();
 			generateLegs2();
 			generateLegs3();
@@ -116,7 +214,7 @@
 			//fin ventana 2
 			*/
 			//pasto
-			const geometryPasto = new THREE.BoxGeometry(4,4,0.1);
+			const geometryPasto = new THREE.BoxGeometry(6,4,0.1);
 			const texturePasto = new THREE.TextureLoader().load( "textura/pasto.jpg" );
 			texturePasto.wrapS = THREE.RepeatWrapping;
 			texturePasto.wrapT = THREE.RepeatWrapping;
@@ -132,7 +230,7 @@
 				legs.forEach((p)=>{
 					//pierna zebra
 					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
-					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: 'blue'} );
+					const materialZebraPierna = new THREE.MeshBasicMaterial( {map:textureZebra} );
 					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
 					cuerpoZebraPierna.position.y=p.py;
 					cuerpoZebraPierna.position.z=p.pz;
@@ -147,7 +245,7 @@
 				legsB.forEach((p)=>{
 					//pierna zebra
 					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
-					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: 'red'} );
+					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: '#534f4e' } );
 					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
 					cuerpoZebraPierna.position.y=p.py;
 					cuerpoZebraPierna.position.z=p.pz;
@@ -162,7 +260,7 @@
 				legsC.forEach((p)=>{
 					//pierna zebra
 					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
-					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: 'yellow'} );
+					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: '#2c2a29'} );
 					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
 					cuerpoZebraPierna.position.y=p.py;
 					cuerpoZebraPierna.position.z=p.pz;
