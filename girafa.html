@@ -49,30 +49,30 @@
 			//fin cuerpo
 
 			//cola zebra
-			const geometryCola = new THREE.BoxGeometry( 0.1, 0.65, 0.3 );
+			const geometryCola = new THREE.BoxGeometry( 0.2, 0.2, 0.3 );
 			const materialCola = new THREE.MeshBasicMaterial( {color: 'black'} );
 			const cuerpoCola = new THREE.Mesh( geometryCola, materialCola );
-			cuerpoCola.position.y=0.4;
+			cuerpoCola.position.y=0.6;
 			cuerpoCola.position.z=-0.8;
 
 			scene.add( cuerpoCola );
 			//fin cola
 
 			//cuello zebra
-			const geometryCuelloZebra = new THREE.BoxGeometry( 0.5, 1.05, 0.5 );
+			const geometryCuelloZebra = new THREE.BoxGeometry( 0.6, 1.8, 0.4 );
 			const materialCuelloZebra = new THREE.MeshBasicMaterial( {map:textureZebra} );
 			const cuelloZebra = new THREE.Mesh( geometryCuelloZebra, materialCuelloZebra );
-			cuelloZebra.position.y=0.7;
-			cuelloZebra.position.z=0.8;
-			cuelloZebra.rotation.x +=0.6
+			cuelloZebra.position.y=0.91;
+			cuelloZebra.position.z=0.7;
+			
 			scene.add( cuelloZebra );
 			//fin cuello
 
 			//cabeza zebra
-			const geometryCabezaZebra = new THREE.BoxGeometry( 0.51, 0.5, 0.58 );
+			const geometryCabezaZebra = new THREE.BoxGeometry( 0.51, 0.35, 0.58 );
 			const materialCabezaZebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
 			const CabezaZebra = new THREE.Mesh( geometryCabezaZebra, materialCabezaZebra );
-			CabezaZebra.position.y=1.03;
+			CabezaZebra.position.y=1.6;
 			CabezaZebra.position.z=1.05;
 			
 			scene.add( CabezaZebra );
@@ -82,27 +82,38 @@
 			const geometryBocaZebra = new THREE.BoxGeometry( 0.4, 0.3, 0.5 );
 			const materialBocaZebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
 			const BocaZebra = new THREE.Mesh( geometryBocaZebra, materialBocaZebra );
-			BocaZebra.position.y=1;
+			BocaZebra.position.y=1.55;
 			BocaZebra.position.z=1.32;
 			
 			scene.add( BocaZebra );
 			//fin boca
 
-			//nariz zebra
-			const geometryNarizZebra = new THREE.BoxGeometry( 0.2, 0.1, 0.5 );
-			const materialNarizZebra = new THREE.MeshBasicMaterial( {color: '#6d6566'} );
-			const NarizZebra = new THREE.Mesh( geometryNarizZebra, materialNarizZebra );
-			NarizZebra.position.y=1;
-			NarizZebra.position.z=1.4;
-			
-			scene.add( NarizZebra );
+			//nariz girafa
+			const geometryNarizGirafa1 = new THREE.BoxGeometry( 0.06, 0.06, 0.5 );
+			const materialNarizGirafa1 = new THREE.MeshBasicMaterial( {color: 'black'} );
+			const NarizGirafa1 = new THREE.Mesh( geometryNarizGirafa1, materialNarizGirafa1 );
+			NarizGirafa1.position.y=1.5;
+			NarizGirafa1.position.z=1.35;
+			NarizGirafa1.position.x=0.1;
+			scene.add( NarizGirafa1 );
+
+
+			const geometryNarizGirafa2 = new THREE.BoxGeometry( 0.06, 0.06, 0.5 );
+			const materialNarizGirafa2 = new THREE.MeshBasicMaterial( {color: 'black'} );
+			const NarizGirafa2 = new THREE.Mesh( geometryNarizGirafa2, materialNarizGirafa2 );
+			NarizGirafa2.position.y=1.5;
+			NarizGirafa2.position.z=1.35;
+			NarizGirafa2.position.x=-0.1;
+			scene.add( NarizGirafa2 );
+
+
 			//fin nariz
 
 			//ojos zebra
 			const geometryOjosZebra = new THREE.BoxGeometry( 0.52, 0.1, 0.1 );
 			const materialOjosZebra = new THREE.MeshBasicMaterial( {color: 'black'} );
 			const OjosZebra = new THREE.Mesh( geometryOjosZebra, materialOjosZebra );
-			OjosZebra.position.y=1.1;
+			OjosZebra.position.y=1.65;
 			OjosZebra.position.z=1.1;
 			
 			scene.add( OjosZebra );
@@ -129,18 +140,7 @@
 
 			
 			scene.add( Oreja2Zebra );
-			//fin Fleco
-
-			const geometryFlecoZebra = new THREE.BoxGeometry( 0.1, 0.18, 0.4 );
-			const materialFlecoZebra = new THREE.MeshBasicMaterial( {map:textureZebra} );
-			const FlecoZebra = new THREE.Mesh( geometryFlecoZebra, materialFlecoZebra );
-			FlecoZebra.position.y=1.37;
-			FlecoZebra.position.z=1;
-			FlecoZebra.position.x=0.01;
-
 			
-			scene.add( FlecoZebra );
-			//fin Fleco
 			generateLegs();
 			generateLegs2();
 			generateLegs3();
