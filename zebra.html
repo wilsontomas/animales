@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Casa</title>
+		<style>
+			body { margin: 0; }
+		</style>
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script>
+			const legs =[
+				{x:0.3,y:0.5,z:0.3, px:0.3,py:-0.2,pz:0.6 },
+				{x:0.3,y:0.5,z:0.3, px:-0.3,py:-0.2,pz:0.6 },
+				{x:0.3,y:0.5,z:0.3, px:-0.3,py:-0.2,pz:-0.6 },
+				{x:0.3,y:0.5,z:0.3, px:0.3,py:-0.2,pz:-0.6 }
+			];
+			const legsB =[
+				{x:0.3,y:0.3,z:0.3, px:0.3,py:-0.6,pz:0.6 },
+				{x:0.3,y:0.3,z:0.3, px:-0.3,py:-0.6,pz:0.6 },
+				{x:0.3,y:0.3,z:0.3, px:-0.3,py:-0.6,pz:-0.6 },
+				{x:0.3,y:0.3,z:0.3, px:0.3,py:-0.6,pz:-0.6 }
+			];
+			const legsC =[
+				{x:0.3,y:0.1,z:0.3, px:0.3,py:-0.8,pz:0.6 },
+				{x:0.3,y:0.1,z:0.3, px:-0.3,py:-0.8,pz:0.6 },
+				{x:0.3,y:0.1,z:0.3, px:-0.3,py:-0.8,pz:-0.6 },
+				{x:0.3,y:0.1,z:0.3, px:0.3,py:-0.8,pz:-0.6 }
+			];
+			const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+			//cuerpo zebra
+			const geometryZebra = new THREE.BoxGeometry( 1, 0.7, 1.6 );
+			const materialZebra = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+			const cuerpoZebra = new THREE.Mesh( geometryZebra, materialZebra );
+			cuerpoZebra.position.y=0.4;
+
+			scene.add( cuerpoZebra );
+
+			generateLegs();
+			generateLegs2();
+			generateLegs3();
+			/*
+			//casa
+			const geometryCasa = new THREE.BoxGeometry(2,2,2);
+			const textureCasa = new THREE.TextureLoader().load( "textura/paredes.jpg" );
+			textureCasa.wrapS = THREE.RepeatWrapping;
+			textureCasa.wrapT = THREE.RepeatWrapping;
+			textureCasa.repeat.set( 1, 1 );
+			const materialCasa = new THREE.MeshBasicMaterial( { map:textureCasa } );
+			const Casa = new THREE.Mesh( geometryCasa, materialCasa );
+			Casa.position.x=0.1;
+			scene.add( Casa );
+			//fin casa
+			//techo--cono
+			const geometryTecho = new THREE.ConeGeometry(1.4,1.2 );
+			const textureTecho = new THREE.TextureLoader().load( "textura/tejado1.jpg" );
+			textureTecho.wrapS = THREE.RepeatWrapping;
+			textureTecho.wrapT = THREE.RepeatWrapping;
+			textureTecho.repeat.set( 1, 1 );
+			const materialTecho = new THREE.MeshBasicMaterial( {map:textureTecho} );
+			const Techo = new THREE.Mesh( geometryTecho, materialTecho );
+			Techo.position.y=1.6;
+			Techo.position.x=0.1;
+			scene.add( Techo );
+			*/
+			//fin techo
+		
+			//puerta
+			/*const geometryPuerta = new THREE.BoxGeometry(0.5,1,0.5);
+			const texturePuerta = new THREE.TextureLoader().load( "textura/puerta.jpg" );
+			texturePuerta.wrapS = THREE.RepeatWrapping;
+			texturePuerta.wrapT = THREE.RepeatWrapping;
+			texturePuerta.repeat.set( 1, 1 );
+			const materialPuerta = new THREE.MeshBasicMaterial( {map:texturePuerta} );
+			const Puerta = new THREE.Mesh( geometryPuerta, materialPuerta );
+			Puerta.position.x=0.1;
+			Puerta.position.y=-0.5;
+			Puerta.position.z=0.8;
+			scene.add( Puerta );*/
+
+			//fin techo
+			/*
+			//textura ventanas
+			const textureVentana = new THREE.TextureLoader().load( "textura/ventana.jpg" );
+			textureVentana.wrapS = THREE.RepeatWrapping;
+			textureVentana.wrapT = THREE.RepeatWrapping;
+			textureVentana.repeat.set( 1, 1 );
+			//fin textura ventanas
+			//ventana 1
+			const geometryVentana1 = new THREE.BoxGeometry(0.5,0.5,0.5);
+			const materialVentana1 = new THREE.MeshBasicMaterial( {map:textureVentana} );
+			const Ventana1 = new THREE.Mesh( geometryVentana1, materialVentana1 );
+			Ventana1.position.x=0.7;
+			Ventana1.position.y=-0.3;
+			Ventana1.position.z=0.8;
+			scene.add( Ventana1 );
+
+			//fin ventana 1
+
+			//ventana 2
+			const geometryVentana2 = new THREE.BoxGeometry(0.5,0.5,0.5);
+			const materialVentana2 = new THREE.MeshBasicMaterial( {map:textureVentana} );
+			const Ventana2 = new THREE.Mesh( geometryVentana2, materialVentana2 );
+			Ventana2.position.x=-0.5;
+			Ventana2.position.y=-0.3;
+			Ventana2.position.z=0.8;
+			scene.add( Ventana2 );
+
+			//fin ventana 2
+			*/
+			//pasto
+			const geometryPasto = new THREE.BoxGeometry(4,4,0.1);
+			const texturePasto = new THREE.TextureLoader().load( "textura/pasto.jpg" );
+			texturePasto.wrapS = THREE.RepeatWrapping;
+			texturePasto.wrapT = THREE.RepeatWrapping;
+			texturePasto.repeat.set( 1, 1 );
+			const materialPasto = new THREE.MeshBasicMaterial( { map:texturePasto } );
+			const Pasto = new THREE.Mesh( geometryPasto, materialPasto );
+			Pasto.position.x=0.1;
+			Pasto.rotation.x +=1.6;
+			Pasto.position.y=-0.95;
+			scene.add(Pasto );
+			//fin pasto
+			function generateLegs(){
+				legs.forEach((p)=>{
+					//pierna zebra
+					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
+					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: 'blue'} );
+					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
+					cuerpoZebraPierna.position.y=p.py;
+					cuerpoZebraPierna.position.z=p.pz;
+					cuerpoZebraPierna.position.x=p.px;
+					scene.add( cuerpoZebraPierna );
+
+					//fin pierna
+				})
+				
+			}
+			function generateLegs2(){
+				legsB.forEach((p)=>{
+					//pierna zebra
+					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
+					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: 'red'} );
+					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
+					cuerpoZebraPierna.position.y=p.py;
+					cuerpoZebraPierna.position.z=p.pz;
+					cuerpoZebraPierna.position.x=p.px;
+					scene.add( cuerpoZebraPierna );
+
+					//fin pierna
+				})
+				
+			}
+			function generateLegs3(){
+				legsC.forEach((p)=>{
+					//pierna zebra
+					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
+					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: 'yellow'} );
+					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
+					cuerpoZebraPierna.position.y=p.py;
+					cuerpoZebraPierna.position.z=p.pz;
+					cuerpoZebraPierna.position.x=p.px;
+					scene.add( cuerpoZebraPierna );
+
+					//fin pierna
+				})
+				
+			}
+			camera.position.z = 5;
+
+			const controls = new THREE.OrbitControls(camera,renderer.domElement);
+			controls.update();
+			function animate() {
+				requestAnimationFrame( animate );
+
+				//cube.rotation.x += 0.01;
+				//cube.rotation.y += 0.01;
+				controls.update();
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+	</body>
+</html>
