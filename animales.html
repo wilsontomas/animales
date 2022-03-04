@@ -16,20 +16,20 @@
 			const legs =[
 				{x:0.3,y:0.5,z:0.3, px:0.3+girafa,py:-0.2,pz:0.6 },
 				{x:0.3,y:0.5,z:0.3, px:-0.3+girafa,py:-0.2,pz:0.6 },
-				{x:0.3,y:0.5,z:0.3, px:-0.3+girafa,py:-0.2,pz:-0.6 },
-				{x:0.3,y:0.5,z:0.3, px:0.3+girafa,py:-0.2,pz:-0.6 }
+				{x:0.3,y:0.5,z:0.3, px:-0.3+girafa,py:-0.2,pz:-0.9 },
+				{x:0.3,y:0.5,z:0.3, px:0.3+girafa,py:-0.2,pz:-0.9 }
 			];
 			const legsB =[
 				{x:0.3,y:0.3,z:0.3, px:0.3+girafa,py:-0.6,pz:0.6 },
 				{x:0.3,y:0.3,z:0.3, px:-0.3+girafa,py:-0.6,pz:0.6 },
-				{x:0.3,y:0.3,z:0.3, px:-0.3+girafa,py:-0.6,pz:-0.6 },
-				{x:0.3,y:0.3,z:0.3, px:0.3+girafa,py:-0.6,pz:-0.6 }
+				{x:0.3,y:0.3,z:0.3, px:-0.3+girafa,py:-0.6,pz:-0.9 },
+				{x:0.3,y:0.3,z:0.3, px:0.3+girafa,py:-0.6,pz:-0.9 }
 			];
 			const legsC =[
 				{x:0.3,y:0.1,z:0.3, px:0.3+girafa,py:-0.8,pz:0.6 },
 				{x:0.3,y:0.1,z:0.3, px:-0.3+girafa,py:-0.8,pz:0.6 },
-				{x:0.3,y:0.1,z:0.3, px:-0.3+girafa,py:-0.8,pz:-0.6 },
-				{x:0.3,y:0.1,z:0.3, px:0.3+girafa,py:-0.8,pz:-0.6 }
+				{x:0.3,y:0.1,z:0.3, px:-0.3+girafa,py:-0.8,pz:-0.9 },
+				{x:0.3,y:0.1,z:0.3, px:0.3+girafa,py:-0.8,pz:-0.9 }
 			];
 			const scene = new THREE.Scene();
 			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -43,10 +43,11 @@
 			textureGirafa.wrapT = THREE.RepeatWrapping;
 			textureGirafa.repeat.set( 0.5, 0.5 );
 			
-			const geometryGirafa = new THREE.BoxGeometry( 1, 0.7, 1.6 );
+			const geometryGirafa = new THREE.BoxGeometry( 1, 0.7, 2 );
 			const materialGirafa = new THREE.MeshBasicMaterial( {map:textureGirafa} );
 			const cuerpoGirafa = new THREE.Mesh( geometryGirafa, materialGirafa );
 			cuerpoGirafa.position.y=0.4;
+			cuerpoGirafa.position.z +=-0.1
 			cuerpoGirafa.position.x +=girafa;
 			scene.add( cuerpoGirafa );
 			
@@ -56,7 +57,7 @@
 			const materialCola = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
 			const cuerpoCola = new THREE.Mesh( geometryCola, materialCola );
 			cuerpoCola.position.y=0.6;
-			cuerpoCola.position.z=-0.8;
+			cuerpoCola.position.z=-1.1;
 			cuerpoCola.position.x +=girafa;
 			scene.add( cuerpoCola );
 		
@@ -64,7 +65,7 @@
 			const materialCuelloGirafa = new THREE.MeshBasicMaterial( {map:textureGirafa} );
 			const cuelloGirafa = new THREE.Mesh( geometryCuelloGirafa, materialCuelloGirafa );
 			cuelloGirafa.position.y=0.91;
-			cuelloGirafa.position.z=0.7;
+			cuelloGirafa.position.z=0.8;
 			cuelloGirafa.position.x +=girafa;
 			scene.add( cuelloGirafa );
 			
