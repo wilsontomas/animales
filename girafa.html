@@ -36,21 +36,21 @@
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
-			const textureZebra = new THREE.TextureLoader().load( "textura/zebra.jfif" );
-			textureZebra.wrapS = THREE.RepeatWrapping;
-			textureZebra.wrapT = THREE.RepeatWrapping;
-			textureZebra.repeat.set( 0.5, 0.5 );
+			const textureGirafa = new THREE.TextureLoader().load( "textura/Girafa.png" );
+			textureGirafa.wrapS = THREE.RepeatWrapping;
+			textureGirafa.wrapT = THREE.RepeatWrapping;
+			textureGirafa.repeat.set( 0.5, 0.5 );
 			//cuerpo zebra
-			const geometryZebra = new THREE.BoxGeometry( 1, 0.7, 1.6 );
-			const materialZebra = new THREE.MeshBasicMaterial( {map:textureZebra} );
-			const cuerpoZebra = new THREE.Mesh( geometryZebra, materialZebra );
-			cuerpoZebra.position.y=0.4;
-			scene.add( cuerpoZebra );
+			const geometryGirafa = new THREE.BoxGeometry( 1, 0.7, 1.6 );
+			const materialGirafa = new THREE.MeshBasicMaterial( {map:textureGirafa} );
+			const cuerpoGirafa = new THREE.Mesh( geometryGirafa, materialGirafa );
+			cuerpoGirafa.position.y=0.4;
+			scene.add( cuerpoGirafa );
 			//fin cuerpo
 
 			//cola zebra
 			const geometryCola = new THREE.BoxGeometry( 0.2, 0.2, 0.3 );
-			const materialCola = new THREE.MeshBasicMaterial( {color: 'black'} );
+			const materialCola = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
 			const cuerpoCola = new THREE.Mesh( geometryCola, materialCola );
 			cuerpoCola.position.y=0.6;
 			cuerpoCola.position.z=-0.8;
@@ -59,33 +59,33 @@
 			//fin cola
 
 			//cuello zebra
-			const geometryCuelloZebra = new THREE.BoxGeometry( 0.6, 1.8, 0.4 );
-			const materialCuelloZebra = new THREE.MeshBasicMaterial( {map:textureZebra} );
-			const cuelloZebra = new THREE.Mesh( geometryCuelloZebra, materialCuelloZebra );
-			cuelloZebra.position.y=0.91;
-			cuelloZebra.position.z=0.7;
+			const geometryCuelloGirafa = new THREE.BoxGeometry( 0.6, 1.8, 0.4 );
+			const materialCuelloGirafa = new THREE.MeshBasicMaterial( {map:textureGirafa} );
+			const cuelloGirafa = new THREE.Mesh( geometryCuelloGirafa, materialCuelloGirafa );
+			cuelloGirafa.position.y=0.91;
+			cuelloGirafa.position.z=0.7;
 			
-			scene.add( cuelloZebra );
+			scene.add( cuelloGirafa );
 			//fin cuello
 
 			//cabeza zebra
-			const geometryCabezaZebra = new THREE.BoxGeometry( 0.51, 0.35, 0.58 );
-			const materialCabezaZebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
-			const CabezaZebra = new THREE.Mesh( geometryCabezaZebra, materialCabezaZebra );
-			CabezaZebra.position.y=1.6;
-			CabezaZebra.position.z=1.05;
+			const geometryCabezaGirafa = new THREE.BoxGeometry( 0.51, 0.35, 0.58 );
+			const materialCabezaGirafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
+			const CabezaGirafa = new THREE.Mesh( geometryCabezaGirafa, materialCabezaGirafa );
+			CabezaGirafa.position.y=1.6;
+			CabezaGirafa.position.z=1.05;
 			
-			scene.add( CabezaZebra );
+			scene.add( CabezaGirafa );
 			//fin cabeza
 
 			//boca zebra
-			const geometryBocaZebra = new THREE.BoxGeometry( 0.4, 0.3, 0.5 );
-			const materialBocaZebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
-			const BocaZebra = new THREE.Mesh( geometryBocaZebra, materialBocaZebra );
-			BocaZebra.position.y=1.55;
-			BocaZebra.position.z=1.32;
+			const geometryBocaGirafa = new THREE.BoxGeometry( 0.4, 0.3, 0.5 );
+			const materialBocaGirafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
+			const BocaGirafa = new THREE.Mesh( geometryBocaGirafa, materialBocaGirafa );
+			BocaGirafa.position.y=1.55;
+			BocaGirafa.position.z=1.32;
 			
-			scene.add( BocaZebra );
+			scene.add( BocaGirafa );
 			//fin boca
 
 			//nariz girafa
@@ -109,41 +109,80 @@
 
 			//fin nariz
 
-			//ojos zebra
-			const geometryOjosZebra = new THREE.BoxGeometry( 0.52, 0.1, 0.1 );
-			const materialOjosZebra = new THREE.MeshBasicMaterial( {color: 'black'} );
-			const OjosZebra = new THREE.Mesh( geometryOjosZebra, materialOjosZebra );
-			OjosZebra.position.y=1.65;
-			OjosZebra.position.z=1.1;
 			
-			scene.add( OjosZebra );
-			//fin ojo1
-
-			//oreja1 zebra
-			const geometryOreja1Zebra = new THREE.BoxGeometry( 0.1, 0.22, 0.1 );
-			const materialOreja1Zebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
-			const Oreja1Zebra = new THREE.Mesh( geometryOreja1Zebra, materialOreja1Zebra );
-			Oreja1Zebra.position.y=1.37;
-			Oreja1Zebra.position.z=1;
-			Oreja1Zebra.position.x=0.18;
+			const geometryOjosGirafa = new THREE.BoxGeometry( 0.52, 0.1, 0.1 );
+			const materialOjosGirafa = new THREE.MeshBasicMaterial( {color: 'black'} );
+			const OjosGirafa = new THREE.Mesh( geometryOjosGirafa, materialOjosGirafa );
+			OjosGirafa.position.y=1.65;
+			OjosGirafa.position.z=1.1;
+			
+			scene.add( OjosGirafa );
+			
+			const geometryBase1Girafa = new THREE.BoxGeometry( 0.05, 0.22, 0.1 );
+			const materialBase1Girafa = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
+			const Base1Girafa = new THREE.Mesh( geometryBase1Girafa, materialBase1Girafa );
+			Base1Girafa.position.y=1.85;
+			Base1Girafa.position.z=1;
+			Base1Girafa.position.x=0.11;
 
 			
-			scene.add( Oreja1Zebra );
-			//fin oreja1
-			//oreja2 zebra
-			const geometryOreja2Zebra = new THREE.BoxGeometry( 0.1, 0.22, 0.1 );
-			const materialOreja2Zebra = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
-			const Oreja2Zebra = new THREE.Mesh( geometryOreja2Zebra, materialOreja2Zebra );
-			Oreja2Zebra.position.y=1.37;
-			Oreja2Zebra.position.z=1;
-			Oreja2Zebra.position.x=-0.18;
+			scene.add( Base1Girafa );
+			
+			const geometryBase2Girafa = new THREE.BoxGeometry( 0.05, 0.22, 0.1 );
+			const materialBase2Girafa = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
+			const Base2Girafa = new THREE.Mesh( geometryBase2Girafa, materialBase2Girafa );
+			Base2Girafa.position.y=1.85;
+			Base2Girafa.position.z=1;
+			Base2Girafa.position.x=-0.11;
 
 			
-			scene.add( Oreja2Zebra );
+			scene.add( Base2Girafa );
 			
-			generateLegs();
-			generateLegs2();
-			generateLegs3();
+			const geometryCuerno1Girafa = new THREE.BoxGeometry( 0.12, 0.1, 0.1 );
+			const materialCuerno1Girafa = new THREE.MeshBasicMaterial( {color: '#d46744'} );
+			const Cuerno1Girafa = new THREE.Mesh( geometryCuerno1Girafa, materialCuerno1Girafa );
+			Cuerno1Girafa.position.y=1.99;
+			Cuerno1Girafa.position.z=1;
+			Cuerno1Girafa.position.x=0.11;
+
+			
+			scene.add( Cuerno1Girafa );
+			
+			const geometryCuerno2Girafa = new THREE.BoxGeometry( 0.12, 0.1, 0.1 );
+			const materialCuerno2Girafa = new THREE.MeshBasicMaterial( {color: '#d46744'} );
+			const Cuerno2Girafa = new THREE.Mesh( geometryCuerno2Girafa, materialCuerno2Girafa );
+			Cuerno2Girafa.position.y=1.99;
+			Cuerno2Girafa.position.z=1;
+			Cuerno2Girafa.position.x=-0.11;
+
+			
+			scene.add( Cuerno2Girafa );
+
+			const geometryOreja1Girafa = new THREE.BoxGeometry( 0.2, 0.2, 0.1 );
+			const materialOreja1Girafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
+			const Oreja1Girafa = new THREE.Mesh( geometryOreja1Girafa, materialOreja1Girafa );
+			Oreja1Girafa.position.y=1.65;
+			Oreja1Girafa.position.z=1;
+			Oreja1Girafa.position.x=0.3;
+
+			
+			scene.add( Oreja1Girafa );
+			
+			const geometryOreja2Girafa = new THREE.BoxGeometry( 0.2, 0.2, 0.1 );
+			const materialOreja2Girafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
+			const Oreja2Girafa = new THREE.Mesh( geometryOreja2Girafa, materialOreja2Girafa );
+			Oreja2Girafa.position.y=1.65;
+			Oreja2Girafa.position.z=1;
+			Oreja2Girafa.position.x=-0.3;
+
+			
+			scene.add( Oreja2Girafa );
+			
+
+			
+			generateLegsGirafa1();
+			generateLegsGirafa2();
+			generateLegsGirafa3();
 			/*
 			//casa
 			const geometryCasa = new THREE.BoxGeometry(2,2,2);
@@ -226,46 +265,46 @@
 			Pasto.position.y=-0.95;
 			scene.add(Pasto );
 			//fin pasto
-			function generateLegs(){
+			function generateLegsGirafa1(){
 				legs.forEach((p)=>{
 					//pierna zebra
-					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
-					const materialZebraPierna = new THREE.MeshBasicMaterial( {map:textureZebra} );
-					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
-					cuerpoZebraPierna.position.y=p.py;
-					cuerpoZebraPierna.position.z=p.pz;
-					cuerpoZebraPierna.position.x=p.px;
-					scene.add( cuerpoZebraPierna );
+					const geometryGirafaPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
+					const materialGirafaPierna = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
+					const cuerpoGirafaPierna = new THREE.Mesh( geometryGirafaPierna, materialGirafaPierna );
+					cuerpoGirafaPierna.position.y=p.py;
+					cuerpoGirafaPierna.position.z=p.pz;
+					cuerpoGirafaPierna.position.x=p.px;
+					scene.add( cuerpoGirafaPierna );
 
 					//fin pierna
 				})
 				
 			}
-			function generateLegs2(){
+			function generateLegsGirafa2(){
 				legsB.forEach((p)=>{
 					//pierna zebra
-					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
-					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: '#534f4e' } );
-					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
-					cuerpoZebraPierna.position.y=p.py;
-					cuerpoZebraPierna.position.z=p.pz;
-					cuerpoZebraPierna.position.x=p.px;
-					scene.add( cuerpoZebraPierna );
+					const geometryGirafaPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
+					const materialGirafaPierna = new THREE.MeshBasicMaterial( {color: '#fbe496' } );
+					const cuerpoGirafaPierna = new THREE.Mesh( geometryGirafaPierna, materialGirafaPierna );
+					cuerpoGirafaPierna.position.y=p.py;
+					cuerpoGirafaPierna.position.z=p.pz;
+					cuerpoGirafaPierna.position.x=p.px;
+					scene.add( cuerpoGirafaPierna );
 
 					//fin pierna
 				})
 				
 			}
-			function generateLegs3(){
+			function generateLegsGirafa3(){
 				legsC.forEach((p)=>{
 					//pierna zebra
-					const geometryZebraPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
-					const materialZebraPierna = new THREE.MeshBasicMaterial( {color: '#2c2a29'} );
-					const cuerpoZebraPierna = new THREE.Mesh( geometryZebraPierna, materialZebraPierna );
-					cuerpoZebraPierna.position.y=p.py;
-					cuerpoZebraPierna.position.z=p.pz;
-					cuerpoZebraPierna.position.x=p.px;
-					scene.add( cuerpoZebraPierna );
+					const geometryGirafaPierna = new THREE.BoxGeometry( p.x, p.y,p.z );
+					const materialGirafaPierna = new THREE.MeshBasicMaterial( {color: '#2c2a29'} );
+					const cuerpoGirafaPierna = new THREE.Mesh( geometryGirafaPierna, materialGirafaPierna );
+					cuerpoGirafaPierna.position.y=p.py;
+					cuerpoGirafaPierna.position.z=p.pz;
+					cuerpoGirafaPierna.position.x=p.px;
+					scene.add( cuerpoGirafaPierna );
 
 					//fin pierna
 				})
