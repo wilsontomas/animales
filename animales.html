@@ -13,6 +13,8 @@
 		<script>
 			//distancia
 			var girafa=1.8;
+			var girafaCabeza =0.7;
+			var girafaDC=-0.2;
 			const legs =[
 				{x:0.3,y:0.5,z:0.3, px:0.3+girafa,py:-0.2,pz:0.6 },
 				{x:0.3,y:0.5,z:0.3, px:-0.3+girafa,py:-0.2,pz:0.6 },
@@ -61,10 +63,11 @@
 			cuerpoCola.position.x +=girafa;
 			scene.add( cuerpoCola );
 		
-			const geometryCuelloGirafa = new THREE.BoxGeometry( 0.6, 1.8, 0.4 );
+			//const geometryCuelloGirafa = new THREE.BoxGeometry( 0.6, 1.8, 0.4 );
+			const geometryCuelloGirafa = new THREE.CylinderGeometry(0.2,0.2,2,32);
 			const materialCuelloGirafa = new THREE.MeshBasicMaterial( {map:textureGirafa} );
 			const cuelloGirafa = new THREE.Mesh( geometryCuelloGirafa, materialCuelloGirafa );
-			cuelloGirafa.position.y=0.91;
+			cuelloGirafa.position.y=1.3;
 			cuelloGirafa.position.z=0.8;
 			cuelloGirafa.position.x +=girafa;
 			scene.add( cuelloGirafa );
@@ -72,18 +75,18 @@
 			const geometryCabezaGirafa = new THREE.BoxGeometry( 0.51, 0.35, 0.58 );
 			const materialCabezaGirafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
 			const CabezaGirafa = new THREE.Mesh( geometryCabezaGirafa, materialCabezaGirafa );
-			CabezaGirafa.position.y=1.6;
-			CabezaGirafa.position.z=1.05;
+			CabezaGirafa.position.y=1.6+girafaCabeza;
+			CabezaGirafa.position.z=1.05+girafaDC;
 			CabezaGirafa.position.x +=girafa;
 			scene.add( CabezaGirafa );
 			//fin cabeza
 
-			//boca zebra
+			//boca girafa
 			const geometryBocaGirafa = new THREE.BoxGeometry( 0.4, 0.3, 0.5 );
 			const materialBocaGirafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
 			const BocaGirafa = new THREE.Mesh( geometryBocaGirafa, materialBocaGirafa );
-			BocaGirafa.position.y=1.55;
-			BocaGirafa.position.z=1.32;
+			BocaGirafa.position.y=1.55+girafaCabeza;
+			BocaGirafa.position.z=1.32+girafaDC;
 			BocaGirafa.position.x +=girafa;
 			scene.add( BocaGirafa );
 			//fin boca
@@ -92,8 +95,8 @@
 			const geometryNarizGirafa1 = new THREE.BoxGeometry( 0.06, 0.06, 0.5 );
 			const materialNarizGirafa1 = new THREE.MeshBasicMaterial( {color: 'black'} );
 			const NarizGirafa1 = new THREE.Mesh( geometryNarizGirafa1, materialNarizGirafa1 );
-			NarizGirafa1.position.y=1.5;
-			NarizGirafa1.position.z=1.35;
+			NarizGirafa1.position.y=1.5+girafaCabeza;
+			NarizGirafa1.position.z=1.35+girafaDC;
 			NarizGirafa1.position.x=0.1+girafa;
 			scene.add( NarizGirafa1 );
 
@@ -101,8 +104,8 @@
 			const geometryNarizGirafa2 = new THREE.BoxGeometry( 0.06, 0.06, 0.5 );
 			const materialNarizGirafa2 = new THREE.MeshBasicMaterial( {color: 'black'} );
 			const NarizGirafa2 = new THREE.Mesh( geometryNarizGirafa2, materialNarizGirafa2 );
-			NarizGirafa2.position.y=1.5;
-			NarizGirafa2.position.z=1.35;
+			NarizGirafa2.position.y=1.5+girafaCabeza;
+			NarizGirafa2.position.z=1.35+girafaDC;
 			NarizGirafa2.position.x=-0.1+girafa;
 			scene.add( NarizGirafa2 );
 
@@ -113,16 +116,16 @@
 			const geometryOjosGirafa = new THREE.BoxGeometry( 0.52, 0.1, 0.1 );
 			const materialOjosGirafa = new THREE.MeshBasicMaterial( {color: 'black'} );
 			const OjosGirafa = new THREE.Mesh( geometryOjosGirafa, materialOjosGirafa );
-			OjosGirafa.position.y=1.65;
-			OjosGirafa.position.z=1.1;
+			OjosGirafa.position.y=1.65+girafaCabeza;
+			OjosGirafa.position.z=1.1+girafaDC;
 			OjosGirafa.position.x=+girafa;
 			scene.add( OjosGirafa );
 			
 			const geometryBase1Girafa = new THREE.BoxGeometry( 0.05, 0.22, 0.1 );
 			const materialBase1Girafa = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
 			const Base1Girafa = new THREE.Mesh( geometryBase1Girafa, materialBase1Girafa );
-			Base1Girafa.position.y=1.85;
-			Base1Girafa.position.z=1;
+			Base1Girafa.position.y=1.85+girafaCabeza;
+			Base1Girafa.position.z=1+girafaDC;
 			Base1Girafa.position.x=0.11+girafa;
 
 			
@@ -131,8 +134,8 @@
 			const geometryBase2Girafa = new THREE.BoxGeometry( 0.05, 0.22, 0.1 );
 			const materialBase2Girafa = new THREE.MeshBasicMaterial( {color: '#d3cac8'} );
 			const Base2Girafa = new THREE.Mesh( geometryBase2Girafa, materialBase2Girafa );
-			Base2Girafa.position.y=1.85;
-			Base2Girafa.position.z=1;
+			Base2Girafa.position.y=1.85+girafaCabeza;
+			Base2Girafa.position.z=1+girafaDC;
 			Base2Girafa.position.x=-0.11+girafa;
 
 			
@@ -141,8 +144,8 @@
 			const geometryCuerno1Girafa = new THREE.BoxGeometry( 0.12, 0.1, 0.1 );
 			const materialCuerno1Girafa = new THREE.MeshBasicMaterial( {color: '#d46744'} );
 			const Cuerno1Girafa = new THREE.Mesh( geometryCuerno1Girafa, materialCuerno1Girafa );
-			Cuerno1Girafa.position.y=1.99;
-			Cuerno1Girafa.position.z=1;
+			Cuerno1Girafa.position.y=1.99+girafaCabeza;
+			Cuerno1Girafa.position.z=1+girafaDC;
 			Cuerno1Girafa.position.x=0.11+girafa;
 
 			
@@ -151,8 +154,8 @@
 			const geometryCuerno2Girafa = new THREE.BoxGeometry( 0.12, 0.1, 0.1 );
 			const materialCuerno2Girafa = new THREE.MeshBasicMaterial( {color: '#d46744'} );
 			const Cuerno2Girafa = new THREE.Mesh( geometryCuerno2Girafa, materialCuerno2Girafa );
-			Cuerno2Girafa.position.y=1.99;
-			Cuerno2Girafa.position.z=1;
+			Cuerno2Girafa.position.y=1.99+girafaCabeza;
+			Cuerno2Girafa.position.z=1+girafaDC;
 			Cuerno2Girafa.position.x=-0.11+girafa;
 
 			
@@ -161,8 +164,8 @@
 			const geometryOreja1Girafa = new THREE.BoxGeometry( 0.2, 0.2, 0.1 );
 			const materialOreja1Girafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
 			const Oreja1Girafa = new THREE.Mesh( geometryOreja1Girafa, materialOreja1Girafa );
-			Oreja1Girafa.position.y=1.65;
-			Oreja1Girafa.position.z=1;
+			Oreja1Girafa.position.y=1.65+girafaCabeza;
+			Oreja1Girafa.position.z=1+girafaDC;
 			Oreja1Girafa.position.x=0.3+girafa;
 
 			
@@ -171,8 +174,8 @@
 			const geometryOreja2Girafa = new THREE.BoxGeometry( 0.2, 0.2, 0.1 );
 			const materialOreja2Girafa = new THREE.MeshBasicMaterial( {color: '#fbc505'} );
 			const Oreja2Girafa = new THREE.Mesh( geometryOreja2Girafa, materialOreja2Girafa );
-			Oreja2Girafa.position.y=1.65;
-			Oreja2Girafa.position.z=1;
+			Oreja2Girafa.position.y=1.65+girafaCabeza;
+			Oreja2Girafa.position.z=1+girafaDC;
 			Oreja2Girafa.position.x=-0.3+girafa;
 
 			
